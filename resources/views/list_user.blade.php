@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-center my-4">Daftar Pengguna</h1>
+    <h1 >Daftar Pengguna</h1>
 
-    <div class="container">
-        <table class="table table-striped table-bordered text-center align-middle">
-            <thead class="table-dark">
+    <div>
+        <table>
+            <thead>
                 <tr>
                     <th>ID</th>
                     <th>NAMA</th>
