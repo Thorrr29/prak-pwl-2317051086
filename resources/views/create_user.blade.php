@@ -1,23 +1,33 @@
 @extends('layouts.app')
-@section('content')
-<div>
-    <h1>Buat Pengguna Baru</h1>
 
-    <form action="{{ route('user_store') }}" method="POST">
-        @csrf
-        <label for="nama">Nama:</label><br>
-            <input type="text" id="nama" name="nama"><br><br>
-        <label for="npm">NPM:</label><br>
-            <input type="text" id="npm" name="npm"><br><br>
-        <label for="kelas">Kelas:</label><br>
-            <select name="kelas_id" id="kelas_id">
-        @foreach ($kelas as $kelasItem)
-            <option value="{{ $kelasItem->id }}">{{
-            $kelasItem->nama_kelas }}</option>
-        @endforeach
-        </select><br><br>
-        <button type="submit">Submit</button>
-    </form>
-</div>
+@section('content')
+    {{-- @include('components.navbar') --}}
+
+    <div style="max-width:600px; margin:2rem auto; background:#fff; border-radius:8px; box-shadow:0 2px 8px #ccc; padding:2rem;">
+        <h2 style="text-align:center; color:#007bff;">Tambah Pengguna Baru</h2>
+        <form action="{{ route('user_store') }}" method="POST" style="margin-top:2rem;">
+            @csrf
+            <div style="margin-bottom:1rem;">
+                <label for="nama">Nama</label>
+                <input type="text" name="nama" id="nama" class="form-control" required>
+            </div>
+            <div style="margin-bottom:1rem;">
+                <label for="npm">NPM</label>
+                <input type="text" name="npm" id="npm" class="form-control" required>
+            </div>
+            <div style="margin-bottom:1rem;">
+                <label for="kelas_id">Kelas</label>
+                <select name="kelas_id" id="kelas_id" class="form-control" required>
+                    <option value="">-- Pilih Kelas --</option>
+                    @foreach($kelas as $k)
+                        <option value="{{ $k->id }}">{{ $k->nama_kelas }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="background:#007bff; color:white; border:none; padding:0.5rem 1.5rem; border-radius:4px;">Simpan</button>
+        </form>
+    </div>
+
+    {{-- @include('components.footer') --}}
 @endsection
 
