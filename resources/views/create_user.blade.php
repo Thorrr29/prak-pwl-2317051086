@@ -24,7 +24,7 @@
                     @endforeach
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary" style="background:#007bff; color:white; border:none; padding:0.5rem 1.5rem; border-radius:4px;">Simpan</button>
+            <button type="submit" class="btn btn-primary" style="background:#28a745; color:white; border:none; padding:0.5rem 1.5rem; border-radius:4px;">Simpan</button>
         </form>
     </div>
 

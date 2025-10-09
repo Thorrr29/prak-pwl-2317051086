@@ -1,5 +1,5 @@
 <table style="width:100%; border-collapse:collapse; box-shadow:0 2px 8px #ccc;">
-    <thead style="background:#5900ff; color:white;">
+    <thead style="background:#007bff; color:white;">
         <tr>
             <th style="padding:8px;">ID</th>
             <th style="padding:8px;">NAMA</th>
