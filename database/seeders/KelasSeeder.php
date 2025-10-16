@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\kelas;
+use App\Models\Kelas;
 
 class KelasSeeder extends Seeder
 {
@@ -22,7 +22,8 @@ class KelasSeeder extends Seeder
         ];
 
         foreach($data as $kelas){
-            kelas::create([
+            Kelas::create([
+                'id' => (string) \Illuminate\Support\Str::uuid(),
                 'nama_kelas' => $kelas
             ]);
         }

@@ -29,4 +29,33 @@ class MataKuliahController extends Controller
         return redirect('/mata_kuliah')->with('success', 'Mata Kuliah berhasil ditambahkan!');
     }
 
+    public function edit($id){
+        $mk = MataKuliah::findOrFail($id);
+        return view('edit_mk', ['title' => 'Edit Mata Kuliah', 'mk' => $mk]);
+    }
+
+    public function update(Request $request, $id){
+        request()->validate([
+            'nama_mk' => 'required',
+            'sks' => 'required|integer|min:1|max:6',
+        ]);
+        try {
+            $mk = MataKuliah::findOrFail($id);
+            $mk->update($request->only(['nama_mk','sks']));
+            return redirect('/mata_kuliah')->with('success', 'Mata Kuliah berhasil diupdate!');
+        } catch (\Throwable $e) {
+            return back()->withInput()->with('error', 'Gagal mengupdate: '.$e->getMessage());
+        }
+    }
+
+    public function destroy($id){
+         try {
+            $mk = MataKuliah::findOrFail($id);
+            $mk->delete();
+            return redirect('/mata_kuliah')->with('success', 'Mata Kuliah berhasil dihapus!');
+        } catch (\Throwable $e) {
+            return back()->with('error', 'Gagal menghapus: '.$e->getMessage());
+        }
+    }
+
 }
